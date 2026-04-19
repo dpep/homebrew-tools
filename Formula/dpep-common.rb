@@ -1,7 +1,7 @@
 class DpepCommon < Formula
   desc "Common utilities"
-  homepage "https://github.com/dpep/homebrew-dpep/blob/main/README.md"
-  url "https://github.com/dpep/homebrew-dpep.git", branch: "main"
+  homepage "https://github.com/dpep/homebrew-tools/blob/main/README.md"
+  url "https://github.com/dpep/homebrew-tools.git", branch: "main"
   version "0.0.1"
   license "MIT"
 

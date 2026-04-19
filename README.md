@@ -1,4 +1,4 @@
-# Homebrew dpep
+# Homebrew Tools
 
 The goal is to make setting up your dev environment easy, awesome, and repeatable.
 
@@ -6,11 +6,11 @@ The goal is to make setting up your dev environment easy, awesome, and repeatabl
 ## How do I install these formulae?
 
 ```shell
-brew install dpep/dpep/<formula>
+brew install dpep/tools/<formula>
 
 
 # or
-brew tap dpep/dpep
+brew tap dpep/tools
 brew install <formula>
 ```
 
@@ -24,12 +24,12 @@ brew install <formula>
 
 Create symlink to Taps directory
 ```
-ln -s /path/to/local/homebrew-dpep `brew --repo`/Library/Taps/dpep/homebrew-test
+ln -s /path/to/local/homebrew-tools `brew --repo`/Library/Taps/dpep/homebrew-tools
 ```
 
 Install local formula
 ```
-brew install dpep/test/<formula>
+brew install dpep/tools/<formula>
 ```
 
 Lint changes
