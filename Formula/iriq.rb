@@ -5,19 +5,10 @@ class Iriq < Formula
   version "0.1.0"
   license "MIT"
 
-  depends_on "ruby"
+  depends_on "go" => :build
 
   def install
-    system Formula["ruby"].opt_bin/"gem", "build", "iriq.gemspec"
-    built_gem = Pathname.glob("iriq-*.gem").first
-    system Formula["ruby"].opt_bin/"gem", "install", built_gem,
-           "--install-dir", libexec,
-           "--bindir", libexec/"bin",
-           "--no-document"
-    (bin/"iriq").write_env_script libexec/"bin/iriq",
-                                  GEM_HOME: libexec,
-                                  GEM_PATH: libexec,
-                                  PATH: "#{Formula["ruby"].opt_bin}:$PATH"
+    system "go", "build", *std_go_args(output: bin/"iriq", ldflags: "-s -w"), "./cmd/iriq"
   end
 
   test do
