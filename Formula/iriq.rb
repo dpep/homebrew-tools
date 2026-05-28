@@ -7,6 +7,9 @@ class Iriq < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "iriq-sqlite",
+    because: "both install the same `iriq` binary"
+
   def install
     system "go", "build", *std_go_args(output: bin/"iriq", ldflags: "-s -w"), "./cmd/iriq"
   end
