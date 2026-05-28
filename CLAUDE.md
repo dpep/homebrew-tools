@@ -24,6 +24,10 @@ Subject = formula name, lowercase, no prefix. Body = short description of what i
 
 When a project ships both Ruby and Go implementations, prefer the Go binary — faster startup, no runtime deps, simpler formula.
 
+## Sibling formulas sharing a source
+
+`iriq` and `iriq-sqlite` build the same upstream binary with different build tags. Bump them together — version skew between the two is wrong since they track the same `main`.
+
 ## Anti-patterns
 
 - Don't pin a commit SHA in `url` — the tap uses `branch: "main"` so `brew upgrade` follows main.
