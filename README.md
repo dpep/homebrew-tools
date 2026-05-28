@@ -23,17 +23,17 @@ brew install <formula>
 ## Local Development
 
 Create symlink to Taps directory
-```
+```shell
 ln -s /path/to/local/homebrew-tools `brew --repo`/Library/Taps/dpep/homebrew-tools
 ```
 
 Install local formula
-```
+```shell
 brew install dpep/tools/<formula>
 ```
 
 Lint changes
-```
+```shell
 brew audit --eval-all
 ```
 

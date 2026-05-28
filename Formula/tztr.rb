@@ -17,7 +17,7 @@ class Tztr < Formula
     (bin/"tztr").write_env_script libexec/"bin/tztr",
                                   GEM_HOME: libexec,
                                   GEM_PATH: libexec,
-                                  PATH: "#{Formula["ruby"].opt_bin}:$PATH"
+                                  PATH:     "#{Formula["ruby"].opt_bin}:$PATH"
   end
 
   test do

@@ -40,13 +40,13 @@ class DpepCommon < Formula
     irbrc
     rekey
     rspec
-  ]
+  ].freeze
 
   CASKS = %w[
     flux
     jumpcut
     visual-studio-code
-  ]
+  ].freeze
 
   def post_install
     puts "Next steps:\n\n"
@@ -59,5 +59,4 @@ class DpepCommon < Formula
     puts "gem install #{GEMS.join(" ")}"
     puts
   end
-
 end
