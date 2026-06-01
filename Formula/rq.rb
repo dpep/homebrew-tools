@@ -2,7 +2,7 @@ class Rq < Formula
   desc "Code navigation engine — reach the definition you want, fast"
   homepage "https://github.com/dpep/rq"
   url "https://github.com/dpep/rq.git", branch: "main"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   depends_on "rust" => :build
