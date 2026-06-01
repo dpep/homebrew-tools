@@ -2,7 +2,7 @@ class Rq < Formula
   desc "Reference Query — find the code you're looking for"
   homepage "https://github.com/dpep/rq"
   url "https://github.com/dpep/rq.git", branch: "main"
-  version "0.1.2"
+  version "0.2.0"
   license "MIT"
 
   depends_on "rust" => :build
