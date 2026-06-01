@@ -20,6 +20,11 @@ Subject = formula name, lowercase, no prefix. Body = short description of what i
 
 - **Ruby gems** (`tztr.rb`): `depends_on "ruby"`, then `gem build` + `gem install` into `libexec`, then shim the executable with `write_env_script` so it picks up the right Ruby.
 - **Go binaries** (`iriq.rb`): `depends_on "go" => :build` (Go is only needed during the build; the resulting binary is statically linked). Install with `system "go", "build", *std_go_args(output: bin/"iriq", ldflags: "-s -w"), "./cmd/iriq"`. No runtime deps.
+- **Rust binaries** (`rq.rb`): `depends_on "rust" => :build` (build-time only; the
+  binary is built on demand, not pre-packaged). Install with
+  `system "cargo", "install", *std_cargo_args` — `std_cargo_args` expands to
+  `--locked --root #{prefix} --path .`, so the crate's committed `Cargo.lock` is
+  honored and the binary lands in `bin/`. No runtime deps.
 - **Other languages**: add a new formula and document the pattern here.
 
 When a project ships both Ruby and Go implementations, prefer the Go binary — faster startup, no runtime deps, simpler formula.
