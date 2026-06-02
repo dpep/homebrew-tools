@@ -23,6 +23,9 @@ class Rq < Formula
     ENV["RQ_DB"] = "#{testpath}/rq.db"
     (testpath/"widget.rb").write "class Widget\nend\n"
     system bin/"rq", "--index", testpath
-    assert_match "Widget", shell_output("#{bin}/rq -C #{testpath} widget")
+    # rq searches the current repo, so run it from inside the indexed tree
+    cd testpath do
+      assert_match "Widget", shell_output("#{bin}/rq widget")
+    end
   end
 end
