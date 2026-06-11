@@ -2,7 +2,7 @@ class Navi < Formula
   desc "Semantic filesystem operations for AI coding agents"
   homepage "https://github.com/dpep/navi"
   url "https://github.com/dpep/navi.git", branch: "main"
-  version "0.5.1"
+  version "0.6.0"
   license "MIT"
 
   depends_on "rust" => :build
