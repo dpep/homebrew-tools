@@ -1,5 +1,5 @@
 class Ae < Formula
-  desc "Real-time acronym expansion and definition extraction"
+  desc "Acronym extraction and expansion engine, local-first"
   homepage "https://github.com/dpep/ae"
   url "https://github.com/dpep/ae.git", branch: "main"
   version "0.1.0"
