@@ -2,7 +2,7 @@ class IriqSqlite < Formula
   desc "IRI extraction, normalization, and clustering (SQLite backend)"
   homepage "https://github.com/dpep/iriq"
   url "https://github.com/dpep/iriq.git", branch: "main"
-  version "0.29.0"
+  version "0.29.1"
   license "MIT"
 
   depends_on "go" => :build
