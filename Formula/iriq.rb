@@ -8,10 +8,8 @@ class Iriq < Formula
   depends_on "rust" => :build
 
   def install
-    # The CLI crate (rust/iriq-cli) pins the `sqlite` feature on its `iriq`
-    # dependency, so every build ships the SQLite corpus backend (.db /
-    # .sqlite / .sqlite3) via rusqlite's bundled C SQLite — no build tags,
-    # no second formula.
+    # The binary crate is rust/iriq-cli; the iriq library it builds links
+    # SQLite (rusqlite, bundled), so .db/.sqlite/.sqlite3 corpora just work.
     system "cargo", "install", *std_cargo_args(path: "rust/iriq-cli")
 
     # `iriq completion bash|zsh` emits the shell completion scripts; Homebrew
