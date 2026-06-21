@@ -2,15 +2,15 @@ class Iriq < Formula
   desc "IRI extraction, normalization, and clustering"
   homepage "https://github.com/dpep/iriq"
   url "https://github.com/dpep/iriq.git", branch: "main"
-  version "0.29.1"
+  version "0.30.0"
   license "MIT"
 
   depends_on "rust" => :build
 
   def install
-    # The binary crate is rust/iriq-cli; the iriq library it builds links
-    # SQLite (rusqlite, bundled), so .db/.sqlite/.sqlite3 corpora just work.
-    system "cargo", "install", *std_cargo_args(path: "rust/iriq-cli")
+    # rust/iriq is one crate: library + `iriq` CLI binary. It links SQLite
+    # (rusqlite, bundled), so .db/.sqlite/.sqlite3 corpora just work.
+    system "cargo", "install", *std_cargo_args(path: "rust/iriq")
 
     # `iriq completion bash|zsh` emits the shell completion scripts; Homebrew
     # drops them into the per-shell dirs so tab completion works after install.
