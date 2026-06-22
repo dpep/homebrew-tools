@@ -2,7 +2,7 @@ class Ae < Formula
   desc "Acronym extraction and expansion engine, local-first"
   homepage "https://github.com/dpep/ae"
   url "https://github.com/dpep/ae.git", branch: "main"
-  version "0.3.1"
+  version "0.3.2"
   license "MIT"
 
   depends_on "rust" => :build
