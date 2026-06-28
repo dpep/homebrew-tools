@@ -5,19 +5,12 @@ class Tztr < Formula
   version "0.1.0"
   license "MIT"
 
-  depends_on "ruby"
+  depends_on "rust" => :build
 
   def install
-    system Formula["ruby"].opt_bin/"gem", "build", "tztr.gemspec"
-    built_gem = Pathname.glob("tztr-*.gem").first
-    system Formula["ruby"].opt_bin/"gem", "install", built_gem,
-           "--install-dir", libexec,
-           "--bindir", libexec/"bin",
-           "--no-document"
-    (bin/"tztr").write_env_script libexec/"bin/tztr",
-                                  GEM_HOME: libexec,
-                                  GEM_PATH: libexec,
-                                  PATH:     "#{Formula["ruby"].opt_bin}:$PATH"
+    # rust/tztr is one crate: library + `tztr` CLI binary. Timezone math uses
+    # jiff against the system tz database (no bundled tzdata).
+    system "cargo", "install", *std_cargo_args(path: "rust/tztr")
   end
 
   test do
