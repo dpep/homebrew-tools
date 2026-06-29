@@ -1,5 +1,5 @@
 class Launder < Formula
-  desc "Make logs pastesafe"
+  desc "Share logs safely"
   homepage "https://github.com/dpep/launder"
   url "https://github.com/dpep/launder/archive/refs/tags/v0.1.1.tar.gz"
   sha256 "2ca30e58008f61ae4a4565ef9c35efb914034d48c96201b0711ac393ab841ea4"
