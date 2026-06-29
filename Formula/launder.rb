@@ -1,8 +1,8 @@
 class Launder < Formula
   desc "Make logs pastesafe"
   homepage "https://github.com/dpep/launder"
-  url "https://github.com/dpep/launder.git", branch: "main"
-  version "0.1.0"
+  url "https://github.com/dpep/launder/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "569a536c5812739d33ca013a3e9df7b1ec3b0d7ccc2125eb03ebf96c041b8e8b"
   license "MIT"
 
   depends_on "rust" => :build

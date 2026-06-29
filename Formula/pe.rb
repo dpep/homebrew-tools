@@ -1,8 +1,8 @@
 class Pe < Formula
   desc "Programming by example for regexes and globs"
   homepage "https://github.com/dpep/pattern_engine"
-  url "https://github.com/dpep/pattern_engine.git", branch: "main"
-  version "0.1.0"
+  url "https://github.com/dpep/pattern_engine/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "635ebf2dd546e319f75375c03510644082e4bac40209fb65d25942cb3f9ac520"
   license "MIT"
 
   depends_on "rust" => :build

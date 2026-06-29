@@ -1,8 +1,8 @@
 class Iriq < Formula
   desc "IRI extraction, normalization, and clustering"
   homepage "https://github.com/dpep/iriq"
-  url "https://github.com/dpep/iriq.git", branch: "main"
-  version "0.32.1"
+  url "https://github.com/dpep/iriq/archive/refs/tags/v0.32.1.tar.gz"
+  sha256 "90c7de9e0756954273b230fe9b7a56d92d3c99b941c02a6ebaa96077c293b7d7"
   license "MIT"
 
   depends_on "rust" => :build
