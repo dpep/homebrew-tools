@@ -9,12 +9,11 @@ One line on a fresh machine (with Homebrew already installed) — installs the t
 every CLI, the common formulae, the GUI casks, and the Ruby gems:
 
 ```shell
-curl -fsSL https://raw.githubusercontent.com/dpep/homebrew-tools/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/dpep/homebrew-tools/main/bootstrap.sh | sh
 ```
 
-It runs `brew bundle` against the repo's [`Brewfile`](Brewfile), then `gem install`.
-(`curl | bash` runs remote code — it's your repo, but give it a read first if you
-like.)
+It runs `brew bundle` against the repo's [`Brewfile`](Brewfile), then `gem install`
+— same `curl | sh` pattern as Homebrew's own installer.
 
 Prefer it declarative, or want to skip the gems? Just the Brewfile — `brew bundle`
 has no URL flag, so pipe it in via stdin (`--file=-`):

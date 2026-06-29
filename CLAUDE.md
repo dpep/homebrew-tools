@@ -44,7 +44,7 @@ note below). No `--fetch-HEAD` dance; the new tag is a new download.
 
 ## New-machine setup lives in the Brewfile, not a formula
 
-The "install all my common tools" bundle is [`Brewfile`](Brewfile) + [`bootstrap.sh`](bootstrap.sh), driven by `brew bundle` — not a meta-formula. A formula can't depend on casks or install gems, and `brew bundle` natively handles taps + formulae + casks together (gems are a `bootstrap.sh` follow-up). Remote one-liner for a fresh box (bundle + gems): `curl -fsSL .../main/bootstrap.sh | bash` — bootstrap.sh fetches the Brewfile from the repo when piped (no local file), or uses the adjacent one when run from a clone. When adding a new tool to the tap that belongs in the default setup, add a `brew "dpep/tools/<name>"` line to the Brewfile too. (This replaced the old `dpep-common` meta-formula.)
+The "install all my common tools" bundle is [`Brewfile`](Brewfile) + [`bootstrap.sh`](bootstrap.sh), driven by `brew bundle` — not a meta-formula. A formula can't depend on casks or install gems, and `brew bundle` natively handles taps + formulae + casks together (gems are a `bootstrap.sh` follow-up). Remote one-liner for a fresh box (bundle + gems + opens Flux/Jumpcut): `curl -fsSL .../main/bootstrap.sh | sh`. bootstrap.sh always fetches the Brewfile from the repo (`brew bundle --file=-`), so it works the same piped or cloned. POSIX `sh`, kept deliberately short. When adding a new tool to the tap that belongs in the default setup, add a `brew "dpep/tools/<name>"` line to the Brewfile too. (This replaced the old `dpep-common` meta-formula.)
 
 ## Description
 
