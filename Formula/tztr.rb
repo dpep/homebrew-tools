@@ -1,8 +1,8 @@
 class Tztr < Formula
   desc "Timezone Translator"
   homepage "https://github.com/dpep/tztr"
-  url "https://github.com/dpep/tztr.git", branch: "main"
-  version "0.1.0"
+  url "https://github.com/dpep/tztr/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "49f90e3ed672559768b5219ecddae45b4ce89abcd6ad1d9a66af8320818888c7"
   license "MIT"
 
   depends_on "rust" => :build
