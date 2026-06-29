@@ -1,8 +1,8 @@
 class Launder < Formula
   desc "Share logs safely"
   homepage "https://github.com/dpep/launder"
-  url "https://github.com/dpep/launder/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "2ca30e58008f61ae4a4565ef9c35efb914034d48c96201b0711ac393ab841ea4"
+  url "https://github.com/dpep/launder/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "748b7e510d414cdf5d5965b0f0467016d3a66b07d7863452a52d7149e9a4d3a0"
   license "MIT"
 
   depends_on "rust" => :build
