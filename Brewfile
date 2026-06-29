@@ -7,7 +7,8 @@
 #
 #   curl -fsSL https://raw.githubusercontent.com/dpep/homebrew-tools/main/Brewfile | brew bundle --file=-
 #
-# Ruby gems aren't a Brewfile concept — run ./bootstrap.sh to also install those.
+# Ruby gems aren't a Brewfile concept — run bootstrap.sh to also install those,
+# or in one line: curl -fsSL .../main/bootstrap.sh | bash
 
 tap "dpep/tools"
 
