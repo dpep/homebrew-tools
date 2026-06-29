@@ -42,6 +42,10 @@ To upgrade a release-tagged install after pushing the tap:
 `brew upgrade dpep/tools/<name>` (always fully-qualify — see the name-collision
 note below). No `--fetch-HEAD` dance; the new tag is a new download.
 
+## New-machine setup lives in the Brewfile, not a formula
+
+The "install all my common tools" bundle is [`Brewfile`](Brewfile) + [`bootstrap.sh`](bootstrap.sh), driven by `brew bundle` — not a meta-formula. A formula can't depend on casks or install gems, and `brew bundle` natively handles taps + formulae + casks together (gems are a `bootstrap.sh` follow-up). Remote one-liner for a fresh box: `curl -fsSL .../main/Brewfile | brew bundle --file=-`. When adding a new tool to the tap that belongs in the default setup, add a `brew "dpep/tools/<name>"` line to the Brewfile too. (This replaced the old `dpep-common` meta-formula.)
+
 ## Description
 
 Use the source project's existing tagline (often in the README's lead sentence or the gemspec/cargo manifest). Drop the trailing period (Homebrew convention). Keep it consistent with what the project advertises — if you change one, change the other.
