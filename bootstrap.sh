@@ -5,5 +5,5 @@
 set -eu
 curl -fsSL https://raw.githubusercontent.com/dpep/homebrew-tools/main/Brewfile | brew bundle --file=-
 gem install bundler irbrc rekey rspec
-open -a Flux
-open -a Jumpcut
+open -a Flux || true
+open -a Jumpcut || true
