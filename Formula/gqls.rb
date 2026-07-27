@@ -1,21 +1,26 @@
 class Gqls < Formula
   desc "Fuzzy and semantic search over a GraphQL schema"
   homepage "https://github.com/dpep/gqls"
-  url "https://github.com/dpep/gqls/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "7ce31d8118cc63c2f2f3877a8c701a6f010ec6488f6bb0c59a373d12e23e8756"
+  url "https://github.com/dpep/gqls/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "36afc1e5ace533551d6ebd98951a11a8657c1aac1ff76f8bf5e75027cb32c75f"
   license "MIT"
 
   depends_on "rust" => :build
+  # Semantic search runs all-MiniLM-L6-v2 through ONNX Runtime, loaded
+  # dynamically at runtime (the `semantic-dynamic` build) — no build-time
+  # download or static linking, and it shares the keg with `ae`. The model
+  # itself is fetched on first use into ~/.cache/huggingface/hub.
+  depends_on "onnxruntime"
 
   def install
-    # The default build ships fuzzy search, introspection (SDL/JSON/URL), and the
-    # resolver jump. Semantic search (ONNX) is a heavier opt-in — build from
-    # source with `cargo install gqls-cli --features semantic` if you want it.
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args, "--features", "semantic-dynamic"
+
+    generate_completions_from_executable(bin/"gqls", "--completions", shells: [:bash, :zsh, :fish])
   end
 
   test do
     assert_match(/^gqls \d+\.\d+\.\d+$/, shell_output("#{bin}/gqls --version").strip)
+    assert_match "complete -F _gqls", shell_output("#{bin}/gqls --completions bash")
 
     (testpath/"schema.graphql").write <<~GRAPHQL
       type Query { user(id: ID!): User }
