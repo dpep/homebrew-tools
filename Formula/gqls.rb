@@ -1,8 +1,8 @@
 class Gqls < Formula
   desc "Fuzzy and semantic search over a GraphQL schema"
   homepage "https://github.com/dpep/gqls"
-  url "https://github.com/dpep/gqls/archive/refs/tags/v0.1.5.tar.gz"
-  sha256 "f5634c0b9365c9c6e1cd28281dc2482ad476fa73ac031147b19506353d21efe0"
+  url "https://github.com/dpep/gqls/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "e0c8b1e3f906d5cfca95729338ae29c55a75d400a664fe7a8e32469abb7b1fec"
   license "MIT"
 
   depends_on "rust" => :build
@@ -13,12 +13,15 @@ class Gqls < Formula
   depends_on "onnxruntime"
 
   def install
-    system "cargo", "install", *std_cargo_args, "--features", "semantic-dynamic"
+    # `semantic` is a default feature (static-download ORT) — opt out of it here
+    # and use `semantic-dynamic`, which dlopen's the onnxruntime keg instead.
+    system "cargo", "install", *std_cargo_args, "--no-default-features", "--features", "semantic-dynamic"
 
     generate_completions_from_executable(bin/"gqls", "--completions", shells: [:bash, :zsh, :fish])
   end
 
   test do
+    ENV["GQLS_NO_AUTOWARM"] = "1" # no background embed during the test
     assert_match(/^gqls \d+\.\d+\.\d+$/, shell_output("#{bin}/gqls --version").strip)
     assert_match "complete -F _gqls", shell_output("#{bin}/gqls --completions bash")
 
