@@ -1,8 +1,8 @@
 class Gqls < Formula
   desc "Fuzzy and semantic search over a GraphQL schema"
   homepage "https://github.com/dpep/gqls"
-  url "https://github.com/dpep/gqls/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "df9149eaf19665be82637ce29aa299c412960839bb7b0367db844548705012fb"
+  url "https://github.com/dpep/gqls/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "f5634c0b9365c9c6e1cd28281dc2482ad476fa73ac031147b19506353d21efe0"
   license "MIT"
 
   depends_on "rust" => :build
