@@ -1,8 +1,8 @@
 class Gqls < Formula
   desc "Fuzzy and semantic search over a GraphQL schema"
   homepage "https://github.com/dpep/gqls"
-  url "https://github.com/dpep/gqls/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "9ce7b848779a4f586a30c046f105b126e96e6d6fc0b768c93572e75678b0f47e"
+  url "https://github.com/dpep/gqls/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "6c8b58d355dfa6bd373a241a8cc87eda3fb9d9eb563102e6b473fe8ce9d0cadd"
   license "MIT"
 
   depends_on "rust" => :build
@@ -32,7 +32,8 @@ class Gqls < Formula
     # fuzzy: a root field floats to the top; a qualified Type.field query works
     assert_match "Query.user", shell_output("#{bin}/gqls user #{testpath}/schema.graphql")
     assert_match "User.name", shell_output("#{bin}/gqls User.name #{testpath}/schema.graphql")
-    # wildcard: enumerates the type's fields
+    # wildcard: enumerates the type's fields, long form and trailing-dot shorthand
     assert_match "User.id", shell_output("#{bin}/gqls 'User.*' #{testpath}/schema.graphql")
+    assert_match "User.id", shell_output("#{bin}/gqls User. #{testpath}/schema.graphql")
   end
 end
