@@ -1,8 +1,8 @@
 class Vocabulist < Formula
   desc "Live personal dictionary, learned from the words you actually use"
   homepage "https://github.com/dpep/vocabulist"
-  url "https://github.com/dpep/vocabulist/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "f0c9109d70fa6cba279a800586bfca6c9552a325e6234b68e04941c6aab61b03"
+  url "https://github.com/dpep/vocabulist/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "fe16ca3e8d4ec1fce37981f42a553e9799087f49cb0ad5c704027c66fce6a4ba"
   license "MIT"
 
   depends_on "rust" => :build
