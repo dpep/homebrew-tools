@@ -1,8 +1,8 @@
 class Ae < Formula
   desc "Acronym extraction and expansion engine"
   homepage "https://github.com/dpep/ae"
-  url "https://github.com/dpep/ae/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "306430f8f47e0bd4feb6405d483bdfd2a8df65a19e8dcbe20982fafd45bf9696"
+  url "https://github.com/dpep/ae/archive/refs/tags/v0.6.2.tar.gz"
+  sha256 "3c8ef67bb7438aa484752eaf33fedbda0bf880273889065f4ea264ecdf348bb2"
   license "MIT"
 
   depends_on "rust" => :build
