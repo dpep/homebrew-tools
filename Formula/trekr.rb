@@ -2,7 +2,7 @@ class Trekr < Formula
   desc "Ruby code intelligence — position to meaning, definition to references"
   homepage "https://github.com/dpep/trekr"
   url "https://github.com/dpep/trekr/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "FILLED_IN_BY_RELEASE_SCRIPT_AFTER_THE_TAG_IS_PUSHED"
+  sha256 "552facf6caf1ce655bee83ef3a17ce6c50119ef6c5d16b6cc7ce041fb12623b8"
   license "MIT"
 
   depends_on "rust" => :build
@@ -22,11 +22,16 @@ class Trekr < Formula
     # Facts are keyed by git blob OID, so the tree under test has to be a real
     # checkout — a plain directory is refused with exit 2, by design.
     ENV["TREKR_DB"] = "#{testpath}/trekr.db"
+    # A call site, not just a definition: `--refs` reports "no references" with
+    # exit 1 when a method is only ever defined, which is the honest answer but
+    # not a smoke test.
     (testpath/"widget.rb").write <<~RUBY
       class Widget
         def resize(width)
         end
       end
+
+      Widget.new.resize(2)
     RUBY
     system "git", "-C", testpath, "init", "-q"
     system "git", "-C", testpath, "add", "-A"
@@ -36,7 +41,12 @@ class Trekr < Formula
     system bin/"trekr", "--index", testpath
     cd testpath do
       assert_match "Widget", shell_output("#{bin}/trekr --symbols widget.rb")
-      assert_match "resize", shell_output("#{bin}/trekr --refs Widget#resize")
+
+      # The definition plus the call site, tiered by receiver — the whole point
+      # of --refs over a grep.
+      refs = shell_output("#{bin}/trekr --refs Widget#resize")
+      assert_match "definition", refs
+      assert_match "possible", refs
     end
   end
 end
