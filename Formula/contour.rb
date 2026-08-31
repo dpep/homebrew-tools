@@ -1,11 +1,8 @@
 class Contour < Formula
   desc "Semantic index of source code — search, navigate and dedupe by intent"
   homepage "https://github.com/dpep/contour"
-  # Nothing is tagged yet. `release` rewrites both lines once v0.1.0 is pushed;
-  # it matches a `vN.N.N` tag and a 64-hex sha, and skips the whole step if the
-  # url already names the tag being released — so this must NOT say v0.1.0.
-  url "https://github.com/dpep/contour/archive/refs/tags/v0.0.0.tar.gz"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  url "https://github.com/dpep/contour/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "a094460221262c1fe9e6b9d614df3e3d134140fc334ba125bc5316be658243f5"
   license "MIT"
 
   depends_on "rust" => :build
