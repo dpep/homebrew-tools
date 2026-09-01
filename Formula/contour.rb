@@ -1,8 +1,8 @@
 class Contour < Formula
   desc "Semantic index of source code — search, navigate and dedupe by intent"
   homepage "https://github.com/dpep/contour"
-  url "https://github.com/dpep/contour/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "a094460221262c1fe9e6b9d614df3e3d134140fc334ba125bc5316be658243f5"
+  url "https://github.com/dpep/contour/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "29b6c779ed7247c03e8e5c95215a75c2e2de46ae6b1eb9dc44704e031236b97c"
   license "MIT"
 
   depends_on "rust" => :build
