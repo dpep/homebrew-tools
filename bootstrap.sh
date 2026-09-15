@@ -3,7 +3,11 @@
 # the Ruby gems a Brewfile can't express. Idempotent — re-run any time.
 #   curl -fsSL https://raw.githubusercontent.com/dpep/homebrew-tools/main/bootstrap.sh | sh
 set -eu
-curl -fsSL https://raw.githubusercontent.com/dpep/homebrew-tools/main/Brewfile | brew bundle --file=-
+# Download first: piped into brew bundle, a failed curl would go unnoticed.
+brewfile=$(mktemp)
+curl -fsSL https://raw.githubusercontent.com/dpep/homebrew-tools/main/Brewfile -o "${brewfile}"
+brew bundle --file="${brewfile}"
+rm -f "${brewfile}"
 gem install bundler irbrc rekey rspec
 open -a Flux || true
 open -a Jumpcut || true

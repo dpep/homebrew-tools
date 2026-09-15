@@ -17,7 +17,7 @@ class Gqls < Formula
     # and use `semantic-dynamic`, which dlopen's the onnxruntime keg instead.
     system "cargo", "install", *std_cargo_args, "--no-default-features", "--features", "semantic-dynamic"
 
-    generate_completions_from_executable(bin/"gqls", "--completions", shells: [:bash, :zsh, :fish])
+    generate_completions_from_executable(bin/"gqls", "--completions")
   end
 
   test do
