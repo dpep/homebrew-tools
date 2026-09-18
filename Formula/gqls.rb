@@ -1,27 +1,19 @@
 class Gqls < Formula
-  desc "Fuzzy and semantic search over a GraphQL schema"
+  desc "Fuzzy search over a GraphQL schema"
   homepage "https://github.com/dpep/gqls"
-  url "https://github.com/dpep/gqls/archive/refs/tags/v0.25.0.tar.gz"
-  sha256 "3ec13f2d83c66518e71b0830188e5514be69fc9f3ba01639a930ebc7c32e986a"
+  url "https://github.com/dpep/gqls/archive/refs/tags/v0.26.0.tar.gz"
+  sha256 "0f12339b1f52afdc7bf728f1330d6d23dff396c57cbf1d7010d74049f658d047"
   license "MIT"
 
   depends_on "rust" => :build
-  # Semantic search runs all-MiniLM-L6-v2 through ONNX Runtime, loaded
-  # dynamically at runtime (the `semantic-dynamic` build) — no build-time
-  # download or static linking, and it shares the keg with `ae`. The model
-  # itself is fetched on first use into ~/.cache/huggingface/hub.
-  depends_on "onnxruntime"
 
   def install
-    # `semantic` is a default feature (static-download ORT) — opt out of it here
-    # and use `semantic-dynamic`, which dlopen's the onnxruntime keg instead.
-    system "cargo", "install", *std_cargo_args, "--no-default-features", "--features", "semantic-dynamic"
+    system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"gqls", "--completions")
   end
 
   test do
-    ENV["GQLS_NO_AUTOWARM"] = "1" # no background embed during the test
     assert_match(/^gqls \d+\.\d+\.\d+$/, shell_output("#{bin}/gqls --version").strip)
     assert_match "complete -F _gqls", shell_output("#{bin}/gqls --completions bash")
 
@@ -36,7 +28,7 @@ class Gqls < Formula
     assert_match "User.id", shell_output("#{bin}/gqls 'User.*' #{testpath}/schema.graphql")
     assert_match "User.id", shell_output("#{bin}/gqls User. #{testpath}/schema.graphql")
     # profile: reports phase timings on stderr
-    assert_match "total", shell_output("#{bin}/gqls user #{testpath}/schema.graphql --profile --fuzzy 2>&1")
+    assert_match "total", shell_output("#{bin}/gqls user #{testpath}/schema.graphql --profile 2>&1")
     # example: drafts a parameterized operation
     assert_match "query User($id: ID!)",
                  shell_output("#{bin}/gqls Query.user #{testpath}/schema.graphql -e")
