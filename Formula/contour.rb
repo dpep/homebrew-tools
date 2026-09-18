@@ -8,7 +8,7 @@ class Contour < Formula
   depends_on "rust" => :build
   # English search runs all-MiniLM-L6-v2 through ONNX Runtime, dlopen'd at
   # runtime (the `semantic-dynamic` build) — no build-time download or static
-  # linking, and it shares the keg with `gqls` and `ae`. The model itself is
+  # linking, and it shares the keg with `ae`. The model itself is
   # fetched on first use into ~/.cache/huggingface/hub.
   depends_on "onnxruntime"
 
