@@ -1,8 +1,8 @@
 class Tztr < Formula
   desc "Timezone Translator: convert timestamps between timezones"
   homepage "https://github.com/dpep/tztr"
-  url "https://github.com/dpep/tztr/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "49f90e3ed672559768b5219ecddae45b4ce89abcd6ad1d9a66af8320818888c7"
+  url "https://github.com/dpep/tztr/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "472b3ac2c47decb13e5f1e16e972db0d830ff5d6e5fc6c602f186ea4952f050f"
   license "MIT"
 
   depends_on "rust" => :build
