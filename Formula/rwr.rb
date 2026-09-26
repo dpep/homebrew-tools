@@ -1,8 +1,8 @@
 class Rwr < Formula
   desc "Ruby structural search and rewrites"
   homepage "https://github.com/dpep/rwr"
-  url "https://github.com/dpep/rwr/archive/refs/tags/v0.6.9.tar.gz"
-  sha256 "9461b3d1628d518440ef9ad205c45942051464b8fbcf217f3c2596d184f2a942"
+  url "https://github.com/dpep/rwr/archive/refs/tags/v0.6.10.tar.gz"
+  sha256 "ed869432921adb97b6f212dd652664dc6d5d2c780cb9da2cb82344d4b2281643"
   license "MIT"
 
   depends_on "rust" => :build
