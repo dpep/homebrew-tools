@@ -1,8 +1,8 @@
 class Trekr < Formula
   desc "Ruby code intelligence — position to meaning, definition to references"
   homepage "https://github.com/dpep/trekr"
-  url "https://github.com/dpep/trekr/archive/refs/tags/v0.2.1.tar.gz"
-  sha256 "8caf158441939cd66274fea46926c1214ce5a77463e1efaaa397a77d70258eaa"
+  url "https://github.com/dpep/trekr/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "72074933f78ca7a583da8052101394302ef72a7bda6a0dd6f2154d76f9781adf"
   license "MIT"
 
   depends_on "rust" => :build
@@ -46,7 +46,7 @@ class Trekr < Formula
       # of --refs over a grep.
       refs = shell_output("#{bin}/trekr --refs Widget#resize")
       assert_match "definition", refs
-      assert_match "possible", refs
+      assert_match "confirmed", refs
     end
   end
 end
