@@ -1,8 +1,8 @@
 class Trekr < Formula
   desc "Ruby code intelligence — position to meaning, definition to references"
   homepage "https://github.com/dpep/trekr"
-  url "https://github.com/dpep/trekr/archive/refs/tags/v0.8.4.tar.gz"
-  sha256 "f2c6458901676154bf6ebc0467a4beabb310dcdc6174f405d26727b34e241c3b"
+  url "https://github.com/dpep/trekr/archive/refs/tags/v0.8.5.tar.gz"
+  sha256 "b9faa634e1f6949796d0e0559dc4345408c2c102c87fea9477124ad44605306e"
   license "MIT"
 
   depends_on "rust" => :build
