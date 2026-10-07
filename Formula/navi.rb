@@ -1,8 +1,8 @@
 class Navi < Formula
   desc "Semantic filesystem operations for AI coding agents"
   homepage "https://github.com/dpep/navi"
-  url "https://github.com/dpep/navi/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "760a354267e34bf96cd5c3bb581d66e09b1bf6d7a19450613c357466dc98db36"
+  url "https://github.com/dpep/navi/archive/refs/tags/v0.13.2.tar.gz"
+  sha256 "4fcb6254ba72093c997f91a0c0b33b082f453d26399045b5ce72ca5067a37fcb"
   license "MIT"
 
   depends_on "rust" => :build
