@@ -20,6 +20,7 @@ brew "dpep/tools/iriq"
 brew "dpep/tools/pe"
 brew "dpep/tools/launder"
 brew "dpep/tools/tztr"
+brew "dpep/tools/driftr"
 
 # Common tools
 brew "bash"
