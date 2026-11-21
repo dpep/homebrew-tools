@@ -1,8 +1,8 @@
 class Inkling < Formula
   desc "Tells agents when a pull request, Jira issue or Slack message changes"
   homepage "https://github.com/dpep/inkling"
-  url "https://github.com/dpep/inkling/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "763d43a0a51772b52def715192e4d3ac1174febe5bb92d87f11d0bc3a3657f1b"
+  url "https://github.com/dpep/inkling/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "54547b4c1cbd8657156a2a33c2d5b77139e25106d6503f98b6ca84e572737cd9"
   license "MIT"
 
   depends_on "rust" => :build
