@@ -9,6 +9,7 @@ class Launder < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    generate_completions_from_executable(bin/"launder", "--completions", shells: [:bash, :zsh, :fish])
   end
 
   test do
@@ -22,5 +23,7 @@ class Launder < Formula
     json = pipe_output("#{bin}/launder -j --with-originals", "ghp_AbCdEf0123456789\n")
     assert_match "<TOKEN_1>", json
     refute_match "ghp_AbCdEf0123456789", json
+
+    assert_match "complete -F", shell_output("#{bin}/launder --completions bash")
   end
 end
