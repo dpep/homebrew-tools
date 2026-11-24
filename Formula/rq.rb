@@ -1,8 +1,8 @@
 class Rq < Formula
   desc "Reference Query — find the code you're looking for"
   homepage "https://github.com/dpep/rq"
-  url "https://github.com/dpep/rq/archive/refs/tags/v0.61.2.tar.gz"
-  sha256 "650e7c295cc858d732a104f64e02da68346c3bff87a733b1094f0a932467ca6c"
+  url "https://github.com/dpep/rq/archive/refs/tags/v0.61.3.tar.gz"
+  sha256 "542efc6546f9fa488e47038986fbbacd1ee735d25d2bda9feefbd93c0483144c"
   license "MIT"
 
   depends_on "rust" => :build
